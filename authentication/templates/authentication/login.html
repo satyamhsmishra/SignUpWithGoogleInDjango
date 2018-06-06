@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+  {% block body %}
+
+<div class="container">
+<div class="myform">
+  <form  method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" name="button" class="btn btn-danger">
+      <i class="fa fa-user" style="font-size:48px;"></i>
+  </button>
+    <div class="btn-group" role="group" aria-label="Basic example">
+    <a href="{% url 'social:begin' 'github' %}">
+        <button type="button" name="button" class="btn btn-info">
+            <i class="fa fa-github-alt" style="font-size:48px;"></i>
+        </button>
+    </a>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+        <button type="button" name="button" class="btn btn-danger">
+            <i class="fa fa-google-plus-official" style="font-size:48px;"></i>
+        </button>
+    </a>
+  </form>
+</div>
+</div>
+</div>
+
+  {% endblock body %}
